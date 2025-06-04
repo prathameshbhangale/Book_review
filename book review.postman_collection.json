@@ -1,0 +1,825 @@
+{
+	"info": {
+		"_postman_id": "306e5af9-48a9-4a5a-b4bc-73ba046eb343",
+		"name": "book review",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35174364",
+		"_collection_link": "https://form-builder-website.postman.co/workspace/form-builder-website-Workspace~f44a36d0-ea17-4c34-a6e2-7a6cd941808e/collection/35174364-306e5af9-48a9-4a5a-b4bc-73ba046eb343?action=share&source=collection_link&creator=35174364"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"password\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE-URL}}/auth/register",
+							"host": [
+								"{{BASE-URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"password\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE-URL}}/auth/register",
+									"host": [
+										"{{BASE-URL}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-VS55zC3JF6pikjezdNRSl27oQrA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Jun 2025 09:52:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"User registered successfully\",\n    \"userId\": \"6840176b1a92b4a289c58e29\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE-URL}}/auth/login",
+									"host": [
+										"{{BASE-URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "268"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10c-YWdCV4rSDBo5Ipx5/gaWa7TNGKw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Jun 2025 09:54:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODQwMTc2YjFhOTJiNGEyODljNThlMjkiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NDkwMzA4NTEsImV4cCI6MTc0OTAzNDQ1MX0.M90ENtcn2Lrnd6pnxaZuJa393pfh44La5p9t376G6eM\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "book",
+			"item": [
+				{
+					"name": "create book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODQwMTc2YjFhOTJiNGEyODljNThlMjkiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NDkwMzA4NTEsImV4cCI6MTc0OTAzNDQ1MX0.M90ENtcn2Lrnd6pnxaZuJa393pfh44La5p9t376G6eM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Clean Code\",\r\n  \"author\": \"Robert C. Martin\",\r\n  \"description\": \"A Handbook of Agile Software Craftsmanship\",\r\n  \"publishedYear\": 2008\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE-URL}}/api/v1/books",
+							"host": [
+								"{{BASE-URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Clean Code\",\r\n  \"author\": \"Robert C. Martin\",\r\n  \"description\": \"A Handbook of Agile Software Craftsmanship\",\r\n  \"publishedYear\": 2008\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE-URL}}/api/v1/books",
+									"host": [
+										"{{BASE-URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "311"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"137-voxqaMoGrlIVFUDPSBCDeU9W/gQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Jun 2025 10:50:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Book created successfully\",\n    \"book\": {\n        \"title\": \"Clean Code\",\n        \"author\": \"Robert C. Martin\",\n        \"description\": \"A Handbook of Agile Software Craftsmanship\",\n        \"publishedYear\": 2008,\n        \"_id\": \"684024e2f17fe614a1e7174e\",\n        \"createdAt\": \"2025-06-04T10:50:10.265Z\",\n        \"updatedAt\": \"2025-06-04T10:50:10.276Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "list books with pagination",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE-URL}}/api/v1/books?page=1&limit=5",
+							"host": [
+								"{{BASE-URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE-URL}}/api/v1/books?page=1&limit=5",
+									"host": [
+										"{{BASE-URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"142-QeJxiADAnVkWtHxsDClcrXDpTBU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Jun 2025 16:13:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"currentPage\": 1,\n    \"totalPages\": 1,\n    \"totalBooks\": 1,\n    \"books\": [\n        {\n            \"_id\": \"684024e2f17fe614a1e7174e\",\n            \"title\": \"Clean Code\",\n            \"author\": \"Robert C. Martin\",\n            \"description\": \"A Handbook of Agile Software Craftsmanship\",\n            \"publishedYear\": 2008,\n            \"createdAt\": \"2025-06-04T10:50:10.265Z\",\n            \"updatedAt\": \"2025-06-04T10:50:10.276Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "add review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODQwMTc2YjFhOTJiNGEyODljNThlMjkiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NDkwNTQ0MjgsImV4cCI6MTc0OTA1ODAyOH0.W4TlUVDSf1UHtCrkUbohViNiQ6pcEEl4nJQ-u_9yOgI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\": 5,\r\n  \"comment\": \"Excellent book on clean code practices!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE-URL}}/api/v1/books/684024e2f17fe614a1e7174e/reviews",
+							"host": [
+								"{{BASE-URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"684024e2f17fe614a1e7174e",
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": 5,\r\n  \"comment\": \"Excellent book on clean code practices!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE-URL}}/api/v1/books/684024e2f17fe614a1e7174e/reviews",
+									"host": [
+										"{{BASE-URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										"684024e2f17fe614a1e7174e",
+										"reviews"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "266"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10a-wUdm2KBil9bzZ6BfztJjF7b+O4E\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Jun 2025 16:28:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review added successfully\",\n    \"review\": {\n        \"user\": \"6840176b1a92b4a289c58e29\",\n        \"rating\": 5,\n        \"comment\": \"Excellent book on clean code practices!\",\n        \"_id\": \"6840742687524f892b7c5df0\",\n        \"createdAt\": \"2025-06-04T16:28:22.062Z\",\n        \"updatedAt\": \"2025-06-04T16:28:22.073Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get book by id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": 5,\r\n  \"comment\": \"Excellent book on clean code practices!\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BASE-URL}}/api/v1/books/684024e2f17fe614a1e7174e?page=1&limit=3",
+									"host": [
+										"{{BASE-URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										"684024e2f17fe614a1e7174e"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "664"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"298-LBILpyOEHwyoIn0rTnK8/bJyx5U\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Jun 2025 16:39:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"book\": {\n        \"_id\": \"684024e2f17fe614a1e7174e\",\n        \"title\": \"Clean Code\",\n        \"author\": \"Robert C. Martin\",\n        \"description\": \"A Handbook of Agile Software Craftsmanship\",\n        \"publishedYear\": 2008,\n        \"createdAt\": \"2025-06-04T10:50:10.265Z\",\n        \"updatedAt\": \"2025-06-04T16:28:22.128Z\",\n        \"__v\": 1,\n        \"reviews\": [\n            \"6840742687524f892b7c5df0\"\n        ]\n    },\n    \"averageRating\": 5,\n    \"reviews\": {\n        \"total\": 1,\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"items\": [\n            {\n                \"_id\": \"6840742687524f892b7c5df0\",\n                \"user\": {\n                    \"_id\": \"6840176b1a92b4a289c58e29\",\n                    \"name\": \"John Doe\",\n                    \"email\": \"john@example.com\"\n                },\n                \"rating\": 5,\n                \"comment\": \"Excellent book on clean code practices!\",\n                \"createdAt\": \"2025-06-04T16:28:22.062Z\",\n                \"updatedAt\": \"2025-06-04T16:28:22.073Z\",\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "review folder",
+			"item": [
+				{
+					"name": "update review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODQwMTc2YjFhOTJiNGEyODljNThlMjkiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NDkwNTQ0MjgsImV4cCI6MTc0OTA1ODAyOH0.W4TlUVDSf1UHtCrkUbohViNiQ6pcEEl4nJQ-u_9yOgI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 4,\r\n  \"comment\": \"Updated comment on this book!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE-URL}}/api/v1/reviews/6840742687524f892b7c5df0",
+							"host": [
+								"{{BASE-URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"6840742687524f892b7c5df0"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"rating\": 4,\r\n  \"comment\": \"Updated comment on this book!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE-URL}}/api/v1/reviews/6840742687524f892b7c5df0",
+									"host": [
+										"{{BASE-URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"reviews",
+										"6840742687524f892b7c5df0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "258"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"102-QDcqn13GEo9KfsHu8oj1mAvvCHs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Jun 2025 16:47:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review updated successfully\",\n    \"review\": {\n        \"_id\": \"6840742687524f892b7c5df0\",\n        \"user\": \"6840176b1a92b4a289c58e29\",\n        \"rating\": 4,\n        \"comment\": \"Updated comment on this book!\",\n        \"createdAt\": \"2025-06-04T16:28:22.062Z\",\n        \"updatedAt\": \"2025-06-04T16:47:33.801Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete review",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE-URL}}/api/v1/reviews/6840742687524f892b7c5df0",
+									"host": [
+										"{{BASE-URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"reviews",
+										"6840742687524f892b7c5df0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-eJZH9QbGPKzQCQgLPX3JFUdcheo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Jun 2025 16:57:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "search book",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE-URL}}/api/v1/search?q=Clean&page=1&limit=5",
+							"host": [
+								"{{BASE-URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Clean"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "334"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14e-Qs2um+BAM0sU1U/W/2sfgJWscm4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jun 2025 17:08:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"total\": 1,\n    \"page\": 1,\n    \"totalPages\": 1,\n    \"books\": [\n        {\n            \"_id\": \"684024e2f17fe614a1e7174e\",\n            \"title\": \"Clean Code\",\n            \"author\": \"Robert C. Martin\",\n            \"description\": \"A Handbook of Agile Software Craftsmanship\",\n            \"publishedYear\": 2008,\n            \"createdAt\": \"2025-06-04T10:50:10.265Z\",\n            \"updatedAt\": \"2025-06-04T16:28:22.128Z\",\n            \"__v\": 1,\n            \"reviews\": [\n                \"6840742687524f892b7c5df0\"\n            ]\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE-URL",
+			"value": "http://localhost:8000",
+			"type": "default"
+		}
+	]
+}
