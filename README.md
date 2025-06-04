@@ -72,8 +72,8 @@ A RESTful API for managing book reviews, built with Node.js and Express.js.
 
 ## For Postman collection
 
-import requests from book review.postman_collection.json in postman for detail api request and response
+import requests from book_review.postman_collection.json in postman for detail api request and response
 ```bash
-review.postman_collection.json
+book_review.postman_collection.json
 ```
 
