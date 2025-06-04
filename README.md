@@ -70,3 +70,10 @@ A RESTful API for managing book reviews, built with Node.js and Express.js.
 | PUT    | /api/v1/reviews/:id   | update review  |
 | DELETE    | /api/v1/reviews/:id   | delete review  |
 
+## For Postman collection
+
+import requests from book review.postman_collection.json in postman for detail api request and response
+```bash
+review.postman_collection.json
+```
+
