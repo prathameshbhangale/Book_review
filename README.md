@@ -19,13 +19,21 @@ A RESTful API for managing book reviews, built with Node.js and Express.js.
 
 ## 📁 Project Structure
 ├── config/ # Configuration files
+
 ├── controller/ # Route handlers
+
 ├── middleware/ # Custom middleware
+
 ├── model/ # Mongoose models
+
 ├── routes/ # API routes
+
 ├── utils/ # Utility functions
+
 ├── index.js # Entry point
+
 ├── package.json # Project metadata and scripts
+
 └── .gitignore # Files to ignore in version control
 
 
