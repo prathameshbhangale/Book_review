@@ -57,3 +57,16 @@ A RESTful API for managing book reviews, built with Node.js and Express.js.
   ```bash
   npm run dev
   ```
+## 📬 API Endpoints
+
+| Method | Endpoint           | Description             |
+|--------|--------------------|-------------------------|
+| POST    | /auth/register             | Register user    |
+| GET    | /auth/login             | get jwt token i.e login      |
+| GET    | /api/v1/books             | Retrieve all books      |
+| POST   | /api/v1/books            | Add a new book          |
+| GET    | /api/v1/books/:id         | Retrieve a specific book with reviews|
+| POST   | /api/v1/reviews           | Add a new review        |
+| PUT    | /api/v1/reviews/:id   | update review  |
+| DELETE    | /api/v1/reviews/:id   | delete review  |
+
